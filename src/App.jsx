@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <p className="text-red-400">Jesus is the reason for the season</p>
+        <p className="text-red-400 text-[200px]">Jesus is the reason for the season</p>
       </div>
     </>
   )
