@@ -8,6 +8,8 @@ const SignUp = () => {
 
 const [icon, setIcon] = useState(false)
 const [showPassword, setShowPassword] = useState(false)
+const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+
 
     const [formData, setFormData] = useState({
         firstname: '',
@@ -89,9 +91,9 @@ const [showPassword, setShowPassword] = useState(false)
     return ( 
                 <>
                 <div className="flex h-screen justify-center items-center ">  
-                    <section className=" bg-white items-center bg-opacity-70 rounded-[10px] py-3 px-6 ">
+                    <section className=" bg-white items-center bg-opacity-70 w-[370px] md:w-[400px] rounded-[10px] py-3 px-6 ">
                         <div>
-                        <form onSubmit={handleSubmit}  className={`font-roboto w-[400px] text-black`}>
+                        <form onSubmit={handleSubmit}  className={`font-roboto  text-black`}>
                             <h2 className="text-center text-black my-2 text-[20px]">Sign Up</h2>
 
                             <div className="flex gap-x-4 mb-4">
@@ -177,10 +179,11 @@ const [showPassword, setShowPassword] = useState(false)
                                 className="ml-auto"
                             >
                                 {showPassword ? (
-                                    <EyeOutlined />
+                                    <EyeInvisibleOutlined />
                                     // <EyeOffIcon className="w-5 h-5 text-gray-400" />
                                 ) : (
-                                    <EyeInvisibleOutlined />
+                                    <EyeOutlined />
+                                    
                                     // <EyeIcon className="w-5 h-5 text-gray-400" />
                                 )}
                                 
@@ -199,12 +202,28 @@ const [showPassword, setShowPassword] = useState(false)
                             
                         <div className={ `${errors.cpassword? "border-red-500":"border-blue-200"} flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
                                
-                               <input type="text" 
+                               <input type={`${showConfirmPassword?"text":"Password"}`} 
                                name="cpassword"
                                placeholder="Confirm Password"
                                value={formData.cpassword}
                                onChange={handleInputChange}
                                className="w-full bg-blue-50 outline-none text-black"  />
+                                <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="ml-auto"
+                            >
+                                {showConfirmPassword ? (
+                                    <EyeInvisibleOutlined />
+                                    // <EyeOffIcon className="w-5 h-5 text-gray-400" />
+                                ) : (
+                                    <EyeOutlined />
+                                    
+                                    // <EyeIcon className="w-5 h-5 text-gray-400" />
+                                )}
+                                
+                                 
+                            </button>
                                </div>
                                <label className="flex text-[14px]">
                             <span className={`text-red-500 text-[14px] ${errors.cpassword? "blink-error":""}`}> {errors.cpassword}</span>
