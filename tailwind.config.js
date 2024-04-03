@@ -17,12 +17,12 @@ export default {
       // //   'grayLight':'#ececec',
       // //   'blue':'#0000FF'
       // // },
-      // fontFamily:{
-      //   roboto:["Roboto", "sans-serif"],
-      //   lora:["Lora", "serif"],
-      //   playfair:['Playfair Display', 'sans-serif']
+      fontFamily:{
+        roboto:["Roboto", "sans-serif"],
+        lora:["Lora", "serif"],
+        playfair:['Playfair Display', 'sans-serif']
   
-      // },
+      },
     extend: {
     },
   },
