@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { DatePicker } from 'antd';
+import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+
 import { Link } from "react-router-dom";
 
 
@@ -175,13 +176,15 @@ const [showPassword, setShowPassword] = useState(false)
                                 onClick={() => setShowPassword(!showPassword)}
                                 className="ml-auto"
                             >
-                                {/* {showPassword ? (
-                                    <EyeOffIcon className="w-5 h-5 text-gray-400" />
+                                {showPassword ? (
+                                    <EyeOutlined />
+                                    // <EyeOffIcon className="w-5 h-5 text-gray-400" />
                                 ) : (
-                                    <EyeIcon className="w-5 h-5 text-gray-400" />
+                                    <EyeInvisibleOutlined />
+                                    // <EyeIcon className="w-5 h-5 text-gray-400" />
                                 )}
-                                 */}
-                                 l
+                                
+                                 
                             </button>
                                
                             </div>   
