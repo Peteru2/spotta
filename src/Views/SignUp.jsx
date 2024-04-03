@@ -9,6 +9,7 @@ const SignUp = () => {
 const [icon, setIcon] = useState(false)
 const [showPassword, setShowPassword] = useState(false)
 const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+const [isTyping, setIsTyping] = useState(false);
 
 
     const [formData, setFormData] = useState({
@@ -32,9 +33,10 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     
       const handleInputChange = (e) => {
         // e.preventDefault();       
-        
        const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+        setIsTyping(value.length > 0);
+
       };
       const handleSubmit = (e) =>{
             e.preventDefault();
@@ -87,7 +89,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false)
       }
 
       
-     
+      
     return ( 
                 <>
                 <div className="flex h-screen justify-center items-center ">  
@@ -165,13 +167,18 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false)
                             <div className="mb-4">  
 
                             
-                            <div className={ `${errors.password? "border-red-500":"border-blue-200"} flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
+                            <div className={ `${errors.password? "border-red-500":"border-blue-200"} relative flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
                             <div className="flex w-full">
+                                <label className={`absolute top-2 left-3 transition-all ${isTyping || showPassword ? "text-gray-400 text-xs -translate-y-2" : ""} text-gray-400`}>
+                        Password
+                    </label>
                                 <input type={`${showPassword? "text":"password"}`} 
                                name="password"
                                placeholder="Password"
                                value={formData.password}
                                onChange={handleInputChange}
+                               onFocus={() => setIsTyping(true)}
+                                onBlur={() => setIsTyping(formData.password.length > 0)}
                                className="w-full bg-blue-50 outline-none text-black"  />
                                     <button
                                 type="button"
@@ -201,7 +208,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false)
                             <div className="mb-4">  
                             
                         <div className={ `${errors.cpassword? "border-red-500":"border-blue-200"} flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
-                               
+                       
                                <input type={`${showConfirmPassword?"text":"Password"}`} 
                                name="cpassword"
                                placeholder="Confirm Password"
