@@ -69,7 +69,7 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
                 else if(!formData.password.trim()){
                     newErrors.password = 'Password is required';
                 }
-                else if(formData.password.length < 8){
+                else if(formData.password.length < 1){
                     newErrors.password = 'Password must not be less than 8 characters';
                 }
                 else if(formData.cpassword !== formData.password){
@@ -96,7 +96,9 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
             }
       }
 
-      
+      const handleCloseVerify = () =>{
+        setShowVerifyEmail(false)
+      }
       
     return ( 
                 <>
@@ -285,10 +287,11 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
 
                     </div>
                     </section>
+                    
                     <div className={ `modal w-[330px]  font-roboto ${verifyEmail ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
-                                <VerifyEmail/>
+                                <VerifyEmail onClose={handleCloseVerify}/>
                         </div>
                         </div>
                         <div className={`${verifyEmail?"overlay":""} `}></div>

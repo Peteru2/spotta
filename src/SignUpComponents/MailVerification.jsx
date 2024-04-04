@@ -2,16 +2,21 @@ import { CloseOutlined, EyeInvisibleOutlined, DeliveredProcedureOutlined } from 
 import { useState } from 'react';
 import ResetPassword from './ResetPassword';
 
-const MailVerification = () => {
+const MailVerification = ({onClose, closeMail}) => {
     const [resendLink, setResendLink] = useState(false)
     const handleResendLink = () =>{
             setResendLink(true)
     }
+    const handleCloseResendLink = () =>{
+        setResendLink(false)
+        onClose()
+        closeMail()
+}
     return ( 
         <div className="text-sm">
             <div className="flex w-full items-center my-2">
             <h2 className="text-blue-500 text-center my-2">Resend verification mail</h2>
-            <CloseOutlined fill="" className='ml-auto cursor-pointer text-blue-500'/>
+            <CloseOutlined onClick ={handleCloseResendLink} fill="" className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please enter your valid email address</p>
 
@@ -29,7 +34,7 @@ const MailVerification = () => {
 <div className={ `modal w-[330px]  font-roboto ${resendLink ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
-                                <ResetPassword/>
+                                <ResetPassword onClose={onClose} closeMail={closeMail} closeResend={handleCloseResendLink}/>
                         </div>
                         </div>
                         <div className={`${resendLink?"overlay":""} `}></div>

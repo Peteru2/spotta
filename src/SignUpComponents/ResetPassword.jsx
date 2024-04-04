@@ -1,16 +1,22 @@
 import { CloseOutlined, EyeInvisibleOutlined, DeliveredProcedureOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import ConfirmPassword from './ConfirmPassword';
 
-const ResetPassword = () => {
-    const [resendLink, setResendLink] = useState(false)
-    const handleResendLink = () =>{
-            setResendLink(true)
+const ResetPassword = ({closeResend}) => {
+    const [resetPassword, setResetPassword] = useState(false)
+    const handleResetPassword = () =>{
+            setResetPassword(true)
     }
+   const  handleCloseResetPassword = () =>{
+    setResetPassword(false)
+    closeResend()
+   }
+
     return ( 
         <div className="text-sm">
             <div className="flex w-full justify-center items-center my-2">
             <h2 className="text-blue-500 text-center my-2">Reset Password</h2>
-            <CloseOutlined fill="" className='ml-auto cursor-pointer text-blue-500'/>
+            <CloseOutlined fill=""  onClick={handleCloseResetPassword} className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please enter your valid email address</p>
 
@@ -22,16 +28,16 @@ const ResetPassword = () => {
 </div>
 
 <div className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">
-    <button onClick={handleResendLink}>RESET PASSWORD</button>
+    <button onClick={handleResetPassword}>GET RECOVERY LINK</button>
 </div>
 
-<div className={ `modal w-[330px]  font-roboto ${resendLink ? "modal-show":""}`}>
+<div className={ `modal w-[330px]  font-roboto ${resetPassword ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
-                                {/* <ResetPassword/> */}
+                                 <ConfirmPassword onClose={handleCloseResetPassword}/> 
                         </div>
-                        </div>
-                        {/* <div className={`${resendVerificationMail?"overlay":""} `}></div> */}
+                        </div> 
+                        <div className={`${resetPassword?"overlay":""} `}></div>
         </div>
      );
 }
