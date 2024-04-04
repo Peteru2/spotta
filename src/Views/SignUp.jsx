@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { EyeOutlined, EyeInvisibleOutlined, DeliveredProcedureOutlined } from '@ant-design/icons';
 
 import { Link } from "react-router-dom";
+import VerifyEmail from "../SignUpComponents/VerifyEmail";
 
 
 const SignUp = () => {
@@ -11,6 +12,7 @@ const [showPassword, setShowPassword] = useState(false)
 const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 const [isTyping, setIsTyping] = useState(false);
 const [isConfTyping, setIsConfTyping] = useState(false);
+const [verifyEmail, setShowVerifyEmail] = useState(false)
 
 
 
@@ -86,7 +88,7 @@ const [isConfTyping, setIsConfTyping] = useState(false);
                             password:'',
                             cpassword:''
                         })
-                          
+                          setShowVerifyEmail(true)
                 }
                 setErrors(newErrors);
             if (Object.keys(newErrors).length === 0) {
@@ -283,7 +285,13 @@ const [isConfTyping, setIsConfTyping] = useState(false);
 
                     </div>
                     </section>
-           
+                    <div className={ `modal w-[330px]  font-roboto ${verifyEmail ? "modal-show":""}`}>
+                            <div className='bg-white p-4 rounded-[6px] '>
+                               
+                                <VerifyEmail/>
+                        </div>
+                        </div>
+                        <div className={`${verifyEmail?"overlay":""} `}></div>
                     </div>
                    
                     
