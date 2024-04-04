@@ -14,8 +14,6 @@ const [isTyping, setIsTyping] = useState(false);
 const [isConfTyping, setIsConfTyping] = useState(false);
 const [verifyEmail, setShowVerifyEmail] = useState(false)
 
-
-
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -23,7 +21,6 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
         email: '',
         password:'',
         cpassword:''
-
       });
     
       const [errors, setErrors] = useState({

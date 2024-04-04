@@ -1,11 +1,13 @@
 import { CloseOutlined, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import Success from './Success';
 
 const ConfirmPassword = ({onClose}) => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [isTyping, setIsTyping] = useState(false);
     const [isConfTyping, setIsConfTyping] = useState(false);
+    const [success, setShowSuccess] = useState(false)
     
     const [formData, setFormData] = useState({
         password:'',
@@ -53,7 +55,7 @@ const ConfirmPassword = ({onClose}) => {
                         password:'',
                         cpassword:''
                     })
-                    //   setShowVerifyEmail(true)
+                      setShowSuccess(true)
             }
             setErrors(newErrors);
         if (Object.keys(newErrors).length === 0) {
@@ -61,6 +63,7 @@ const ConfirmPassword = ({onClose}) => {
         }
   }
   const handleCloseConfirmPass =() =>{
+        setShowSuccess(false)
         onClose()
   }
     return ( 
@@ -162,13 +165,13 @@ Password
     <button>RESET PASSWORD</button>
 </div>
 </form>
-{/* <div className={ `modal w-[330px]  font-roboto ${resetPasswrod ? "modal-show":""}`}>
+<div className={ `modal w-[330px]  font-roboto ${success ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
-                                {/* <ResetPassword/> 
+                                 <Success onClose={handleCloseConfirmPass}/> 
                         </div>
                         </div> 
-                        {/* <div className={`${resendVerificationMail?"overlay":""} `}></div> */}
+                         <div className={`${success ?"overlay":""} `}></div>
         </div>
      );
 }
