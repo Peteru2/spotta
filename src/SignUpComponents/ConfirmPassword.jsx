@@ -22,28 +22,34 @@ const ConfirmPassword = ({onClose}) => {
       });
     
       const handleInputChange = (e) => {
-        // e.preventDefault();       
+        // e.preventDefault();      
        const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+
         if (name === "password") {
-            setIsTyping(value !== "");
+            setIsTyping(true);
+            const newErrors = { ...errors };
+            //  if (/^.*(?=.{8,})(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).*$/.test(value)) {
+            //     newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
+            // } else {
+            //     newErrors.password = ''; // Clear error message if password is valid
+            // }
+            // setErrors(newErrors);
+
         } else if (name === "cpassword") {
-            setIsConfTyping(value !== "");
+            setIsConfTyping(true);
         }
 
       };
       const handleSubmit = (e) =>{
         e.preventDefault();
   const newErrors = {};
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-
-       
-            
+                   
             if(!formData.password.trim()){
                 newErrors.password = 'Password is required';
             }
-            else if(formData.password.length < 1){
-                newErrors.password = 'Password must not be less than 8 characters';
+           else if (/^.*(?=.{8,})(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).*$/.test(formData.password)) {
+                newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
             }
             else if(formData.cpassword !== formData.password){
                 newErrors.cpassword = 'Password does not match';
@@ -77,9 +83,9 @@ const ConfirmPassword = ({onClose}) => {
            <div className="mb-4">  
 
                             
-<div className={ `${errors.password? "border-red-500":"border-blue-200"} relative flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
+<div className={ `${errors.password? "border-red-500":"border-blue-200"} relative flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-3`}>
 <div className="flex w-full">
-    <label className={`absolute top-2 left-3 transition-all ${isTyping || showPassword ? "text-gray-400 text-xs -translate-y-2" : ""} text-gray-400`}>
+    <label className={`absolute top-2 left-3 transition-all ${isTyping || showPassword ? "text-gray-400 text-[10px] pb-2 -translate-y-2" : ""} text-gray-400`}>
 Password
 </label>
     <input type={`${showPassword? "text":"password"}`} 
@@ -120,10 +126,10 @@ Password
 
 <div className="mb-4">  
 
-<div className={ `${errors.cpassword? "border-red-500":"border-blue-200"} relative flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-2`}>
+<div className={ `${errors.cpassword? "border-red-500":"border-blue-200"} relative flex items-center bg-blue-50 border  rounded-[5px] mt-1 px-3  py-3`}>
 <div className="flex w-full">
 
-<label className={`absolute top-2 left-3 transition-all ${isConfTyping || showConfirmPassword ? "text-xs -translate-y-2" : ""} text-gray-400`}>
+<label className={`absolute top-2 left-3 transition-all ${isConfTyping || showConfirmPassword ? "text-[10px] pb-1 -translate-y-2" : ""} text-gray-400`}>
                         Confirm Password
 </label>
 
