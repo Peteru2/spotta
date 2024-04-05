@@ -44,11 +44,12 @@ const ConfirmPassword = ({onClose}) => {
       const handleSubmit = (e) =>{
         e.preventDefault();
   const newErrors = {};
+            const re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
                    
             if(!formData.password.trim()){
                 newErrors.password = 'Password is required';
             }
-           else if (/^.*(?=.{8,})(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).*$/.test(formData.password)) {
+           else if (!re.test(formData.password)) {
                 newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
             }
             else if(formData.cpassword !== formData.password){
