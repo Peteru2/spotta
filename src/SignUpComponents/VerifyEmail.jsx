@@ -32,7 +32,7 @@ const VerifyEmail = ({onClose}) => {
                         </svg>
 
             </div>
-            <h2 className="text-blue-500 text-center my-2">Verify Email</h2>
+            <h2 className="text-blue-500 text-center my-2 font-bold">Verify Email</h2>
             
            <p className="text-center">
                     Thank you for signing up on AreaFinder. In order to
@@ -44,7 +44,7 @@ const VerifyEmail = ({onClose}) => {
     <button onClick={handleMailBox}>GO TO YOUR MAILBOX</button>
 </div>
 
-<div className={ `modal w-[330px]  font-roboto ${resendVerificationMail ? "modal-show":""}`}>
+<div className={ `modal w-[330px] md:w-[498px]  font-roboto ${resendVerificationMail ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>                           
                                 <MailVerification onClose={onClose} closeMail={handleCloseMailBox}/>
                         </div>

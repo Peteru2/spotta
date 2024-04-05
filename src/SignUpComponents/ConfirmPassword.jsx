@@ -69,7 +69,7 @@ const ConfirmPassword = ({onClose}) => {
     return ( 
         <div className="text-sm">
             <div className="flex w-full justify-center items-center my-2">
-            <h2 className="text-blue-500 text-center my-2">Reset Password</h2>
+            <h2 className="text-blue-500 text-center my-2 font-bold">Reset Password</h2>
             <CloseOutlined fill=""  onClick={handleCloseConfirmPass} className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please, input your password</p>
@@ -165,7 +165,7 @@ Password
     <button>RESET PASSWORD</button>
 </div>
 </form>
-<div className={ `modal w-[330px]  font-roboto ${success ? "modal-show":""}`}>
+<div className={ `modal w-[330px] md:w-[498px]  font-roboto ${success ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
                                  <Success onClose={handleCloseConfirmPass}/> 

@@ -43,7 +43,7 @@ const ResetPassword = ({closeResend}) => {
     return ( 
         <div className="text-sm">
             <div className="flex w-full justify-center items-center my-2">
-            <h2 className="text-blue-500 text-center my-2">Reset Password</h2>
+            <h2 className="text-blue-500 text-center my-2 font-bold">Reset Password</h2>
             <CloseOutlined fill=""  onClick={handleCloseResetPassword} className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please enter your valid email address</p>
@@ -64,7 +64,7 @@ const ResetPassword = ({closeResend}) => {
     <button onClick={handleResetPassword}>GET RECOVERY LINK</button>
 </div>
 
-<div className={ `modal w-[330px]  font-roboto ${resetPassword ? "modal-show":""}`}>
+<div className={ `modal w-[330px] md:w-[498px]  font-roboto ${resetPassword ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>
                                
                                  <ConfirmPassword onClose={handleCloseResetPassword}/> 
