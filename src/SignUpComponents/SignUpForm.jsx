@@ -198,10 +198,10 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
                                 className="ml-auto"
                             >
                                 {showPassword ? (
-                                    <EyeInvisibleOutlined />
+                                    <EyeInvisibleOutlined  className="outline-none"/>
                                     // <EyeOffIcon className="w-5 h-5 text-gray-400" />
                                 ) : (
-                                    <EyeOutlined />
+                                    <EyeOutlined className="outline-none"/>
                                     
                                     // <EyeIcon className="w-5 h-5 text-gray-400" />
                                 )}
@@ -242,10 +242,10 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
                                 className="ml-auto"
                             >
                                 {showConfirmPassword  ? (
-                                    <EyeInvisibleOutlined />
+                                    <EyeInvisibleOutlined  className="outline-none"/>
                                     // <EyeOffIcon className="w-5 h-5 text-gray-400" />
                                 ) : (
-                                    <EyeOutlined />
+                                    <EyeOutlined className="outline-none" />
                                     
                                     // <EyeIcon className="w-5 h-5 text-gray-400" />
                                 )}
