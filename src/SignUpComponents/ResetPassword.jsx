@@ -43,7 +43,7 @@ const ResetPassword = ({closeResend}) => {
     return ( 
         <div className="text-sm">
             <div className="flex w-full justify-center items-center my-2">
-            <h2 className="text-blue-500 text-center my-2 font-bold w-full">Reset Password</h2>
+            <h2 className="text-center my-2 font-bold w-full">Reset Password</h2>
             <CloseOutlined fill=""  onClick={handleCloseResetPassword} className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please enter your valid email address</p>

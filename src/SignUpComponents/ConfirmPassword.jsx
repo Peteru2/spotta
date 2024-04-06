@@ -28,13 +28,15 @@ const ConfirmPassword = ({onClose}) => {
 
         if (name === "password") {
             setIsTyping(true);
-            const newErrors = { ...errors };
-            //  if (/^.*(?=.{8,})(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).*$/.test(value)) {
-            //     newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
-            // } else {
-            //     newErrors.password = ''; // Clear error message if password is valid
-            // }
-            // setErrors(newErrors);
+            const newErrors = { };
+            const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+             if (!passwordRegex.test(value)) {
+                newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
+               const GET = newErrors.pasword.split(',')
+            } else {
+                newErrors.password = ''; // Clear error message if password is valid
+            }
+            setErrors(newErrors);
 
         } else if (name === "cpassword") {
             setIsConfTyping(true);
@@ -43,13 +45,14 @@ const ConfirmPassword = ({onClose}) => {
       };
       const handleSubmit = (e) =>{
         e.preventDefault();
-  const newErrors = {};
-            const re = !/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+            const newErrors = {};
+
+            const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
                    
             if(!formData.password.trim()){
                 newErrors.password = 'Password is required';
             }
-           else if (!re.test(formData.password)) {
+           else if (!passwordRegex.test(formData.password)) {
                 newErrors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one number, and one special character';
             }
             else if(formData.cpassword !== formData.password){
@@ -76,7 +79,7 @@ const ConfirmPassword = ({onClose}) => {
     return ( 
         <div className="text-sm">
             <div className="flex w-full justify-center items-center my-2">
-            <h2 className="text-blue-500 text-center my-2 w-full font-bold">Reset Password</h2>
+            <h2 className="text-center my-2 w-full font-bold">Reset Password</h2>
             <CloseOutlined fill=""  onClick={handleCloseConfirmPass} className='ml-auto cursor-pointer text-blue-500'/>
             </div>
            <p className="">Please, input your password</p>
