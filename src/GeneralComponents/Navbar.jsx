@@ -14,7 +14,7 @@ const Navbar = () => {
                         {isActive ? (
                                 <>
                                  <div className="font-bold flex items-center">
-                                        <h2 className="mr-1">Welcome!</h2><img className="w-[36px] h-[36px] rounded-full" src={navAvatar} alt="navAvatar" />
+                                        <h2 className="mr-1">Welcome!</h2><img className="w-[36px] h-[36px] rounded-f" src={navAvatar} alt="navAvatar" />
                                     </div> 
                                 </>
                         ):(

@@ -4,12 +4,17 @@ import { StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@a
 const ScrollableDiv = () => {
     return ( 
         <>
-        <div className=" w-[600px] p-[1px] py-8 bg-gray-300 h-[550px] grid grid-cols-2  overflow-y-hidden overflow-y-scroll relative gap-[20px] scrollbar-style">
-       
+      
+        <div className="w-[600px] p-[1px] py-8 bg-gray-200 relative h-[550px]   overflow-y-hidden hover:x`overflow-y-scroll">
+
+        <div className="absolute top-0 left-0 w-full h-[50px] bg-gradient-to-b from-white via-white" />
+   
+    <div className="absolute bottom-0 left-0 w-full h-[50px] bg-gradient-to-t from-white via-white" />
+       <div className="grid grid-cols-2  gap-[20px]">
                    {DashData.map(data =>{
                        return(
                                <>
-                                <div className="p-4  bg-white rounded-xl">
+                                <div className="p-4  bg-white bg-opacity-100 rounded-xl">
                                <div className="flex items-center  w-full text-sm">
                        <img className="w-[25px] h-[25px] rounded-full -mt-1 mr-1" src={data.img} alt="hero"/>
                        <div className="">
@@ -37,15 +42,16 @@ const ScrollableDiv = () => {
                        <h2  className="text-gray-500"> <CommentOutlined />{data.comment}</h2>
                   
                    
-                   <h2 className={`ml-auto text-xs rounded-md px-1 text-black ${data.type === "power"? "bg-red-400": data.type==="network"? "bg-pink-200" : data.type==="traffic"? "bg-yellow-100": "bg-blue-400"}`}>{data.type}</h2>
+                   <h2 className={`ml-auto text-xs rounded-md px-1 text-black ${data.type === "power"? "bg-red-400": data.type==="network"? "bg-pink-200" : data.type==="traffic"? "bg-yellow-100": "bg-blue-300 border-[1px] border-blue-500"}`}>{data.type}</h2>
                    </div>
-                   <div className="sticky bottom-0 z-10 bg-gradient-to-t from-white via-white"></div>
+                   <div className="after:content-container"></div>
                    </div>  
                
                                </>
                        )
                    })}
            </div>
+           </div> 
         </>
      );
 }

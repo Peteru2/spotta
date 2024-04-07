@@ -102,7 +102,7 @@ const [verifyEmail, setShowVerifyEmail] = useState(false)
     return ( 
                 <>
                
-                <div className="flex min-h-screen mt-10 md:mt-0 justify-center items-center ">  
+                <div className="flex  mt-10 md:mt-0 justify-center  ">  
                     <section className=" bg-gray-50 items-center  w-[370px] md:w-[400px] rounded-[10px] py-3 px-6 ">
                         <div>
                         <form onSubmit={handleSubmit}  className={`font-roboto  text-black`}>

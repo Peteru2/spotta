@@ -4,6 +4,7 @@ import SignUp from './Views/SignUp';
 import "../src/style.css"
 import AllReviews from './Views/AllReviews';
 import Dashboard from './Views/Dashboard';
+import Login from './Views/Login';
 function App() {
 
 
@@ -11,11 +12,11 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/SignUp" element={<SignUp />} />
+          {/* <Route path="/SignUp" element={<SignUp />} /> */}
           {/* <Route path="/" element={<AllReviews />} /> */}
-          <Route path="/" element={<Dashboard />} />
+          {/* <Route path="/" element={<Dashboard />} /> */}
 
-          {/* <Route path="/Login" element={<Login />} /> */}
+          <Route path="/" element={<Login />} />
           
 
         </Routes>
