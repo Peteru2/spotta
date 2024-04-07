@@ -1,4 +1,7 @@
 import Navbar from "../GeneralComponents/Navbar";
+import { StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@ant-design/icons';
+import DashData from "../DashboardComponents/data";
+import heroImg from "../assets/images/heroImg.jfif"
 
 const Dashboard = () => {
     return ( 
@@ -23,9 +26,49 @@ const Dashboard = () => {
                             <button className="bg-blue-500 px-4  my-4 text-white rounded-md py-2 text-sm">SEARCH</button>
                         </div>
                     </div>
-                    <div className="w-[506px] bg-white h-[550px] justify-between flex  overflow-y-scroll my-4 gap-[10px] scrollbar-style">
-                        <div className="p-2 border-[1px] border-gray-400 rounded-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi pariatur est magni minima quae aspernatur cumque distinctio fugiat non amet eligendi dolor sit perferendis nulla facilis corporis, modi commodi enim temporibus vel repellendus optio. Hic delectus numquam quas optio dolorum aliquid itaque! Perferendis veniam, consequatur quas incidunt doloribus ullam minima non magni dolorum ea dolores, nihil deleniti dolorem fugit, soluta repellat excepturi in! Debitis architecto non exercitationem quibusdam expedita mollitia dolor et deserunt, omnis ad consectetur nisi quidem unde voluptate.</div>
-                        <div className="p-2 border-[1px] border-gray-400 rounded-md">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, soluta enim nihil ipsa eligendi neque earum, voluptates sint facere accusantium laboriosam id nobis dolorem illo, aut dignissimos tempora veritatis voluptate deleniti pariatur. Voluptas, ullam eveniet recusandae provident quibusdam nesciunt officia impedit excepturi possimus omnis ratione quos. Doloribus tempore labore beatae laudantium atque maxime dolor. Accusamus quia illo repudiandae recusandae quae blanditiis ducimus enim aut, minima sequi earum itaque sint facilis iusto ratione alias magni praesentium! Repellendus quidem nobis nemo provident!</div>
+                    <div className="relative w-[600px] p-[1px] py-8 bg-gray-300 h-[550px] grid grid-cols-2  hover:overflow-y-scroll my-4 gap-[20px] scrollbar-style">
+                                 <div className="fixed  top-0 left-0 right-0 w-full h-20 bg-gradient-to-b from-white via-white z-10" />
+                                {/* Add bottom fade */}
+                                <div className="fixed  bottom-0 left-0 right-0 w-full h-20 bg-gradient-to-t from-white via-white z-10" />
+                                {/* Your content */}
+                            {DashData.map(data =>{
+                                return(
+                                        <>
+                                         <div className="p-4 h-[280px] bg-white rounded-xl">
+                                        <div className="flex items-center  w-full text-sm">
+                                <img className="w-[25px] h-[25px] rounded-full -mt-1 mr-1" src={data.img} alt="hero"/>
+                                <div className="">
+                                    <h2>{data.name}.</h2>
+                                    <h2 className=" -mt-1 text-gray-400 text-[10px]">5 months ago</h2>
+                                </div>
+                                <div className="ml-auto">
+                                    <h2>Ikate, Lekki</h2>
+                                    <h2 className="-mt-1">
+                                    <StarOutlined  className="text-yellow-400 "/>
+                                    <StarOutlined  className="text-yellow-400 "/>
+                                    <StarOutlined  className="text-yellow-400 "/>
+                                    <StarOutlined  className="text-gray-400 "/>
+                                    <StarOutlined  className="text-gray-400 "/>
+
+                                    </h2>
+                                </div>
+                            </div>
+                            <p className="text-[15px] my-2">
+                            There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.
+                            </p>
+                            <div className="flex w-full text-xs mt-2">
+                                <h2 className="text-gray-500"><LikeOutlined />{data.like}</h2>
+                                <h2  className="text-gray-500 mx-2"> <DislikeOutlined />{data.dislike}</h2>
+                                <h2  className="text-gray-500"> <CommentOutlined />{data.comment}</h2>
+                           
+                            
+                            <h2 className={`ml-auto text-xs rounded-md px-1 text-black ${data.type === "power"? "bg-red-400": data.type==="network"? "bg-pink-200" : data.type==="traffic"? "bg-yellow-100": "bg-blue-400"}`}>{data.type}</h2>
+                            </div>
+                            </div>  
+                        
+                                        </>
+                                )
+                            })}
                     </div>
                 </div>
         </>
