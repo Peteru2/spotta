@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import navAvatar from "../assets/images/navAvatar.jfif"
 const Navbar = () => {
     const location = useLocation()
-    const isActive = location.pathname ==="/"
+    const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     return ( 
         
         <>
@@ -13,13 +13,14 @@ const Navbar = () => {
 
                         {isActive ? (
                                 <>
-                                 <div className="font-bold flex items-center">
-                                        <h2 className="mr-1">Welcome!</h2><img className="w-[36px] h-[36px] rounded-full" src={navAvatar} alt="navAvatar" />
-                                    </div> 
+                                 <Link to={"/Login"} className="text-blue-500 text-[14px] tracker-wider outline-none">LOGIN</Link>  
+                                  
                                 </>
                         ):(
                                 <>
-                                 <Link className="text-blue-500 text-[14px] tracker-wider outline-none">LOGIN</Link>  
+                                <div className="font-bold flex items-center">
+                                        <h2 className="mr-1">Welcome!</h2><img className="w-[36px] h-[36px] rounded-full" src={navAvatar} alt="navAvatar" />
+                                    </div>
                                 </>
                         )}
 

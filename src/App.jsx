@@ -12,11 +12,11 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* <Route path="/SignUp" element={<SignUp />} /> */}
-          {/* <Route path="/" element={<AllReviews />} /> */}
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/" element={<AllReviews />} />
           {/* <Route path="/" element={<Dashboard />} /> */}
 
-          <Route path="/" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
           
 
         </Routes>
