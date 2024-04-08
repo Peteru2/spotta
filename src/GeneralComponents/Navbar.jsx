@@ -9,6 +9,7 @@ const Navbar = () => {
     const location = useLocation()
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     const [searchData, setSearchData] = useState(null)
+    const [isTyping, setIsTyping] = useState(false)
 
     const [formData, setFormData] = useState({    
         search: '',
@@ -17,12 +18,21 @@ const Navbar = () => {
     const handleInputChange = (e) =>{
         const {name,value} = e.target
         setFormData({ ...formData, [name]: value });
-        SearchData.map((data=>{
+        SearchData.forEach((data=>{
+            if(value === data.address){
             setSearchData(data)
+            console.log("Yeah")
+        }
         })
         )
-        if(value !== searchData.name) {
-            console.log("It is not working")
+        if (value !== ""){
+            setIsTyping(true)
+        }
+        else{
+            setIsTyping(false)
+        }
+        if(value !== searchData.address) {
+            console.log("It is not working" + searchData.address)
         }else{
             console.log("It is working")
         }
@@ -30,11 +40,11 @@ const Navbar = () => {
     return ( 
         
         <>
-            <nav className="font-roboto">
-                <div className="   md:px-[100px] px-[50px]  py-[16px] flex w-full">
+            <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[50px]  py-[16px] font-roboto`}>
+                <div className={`  flex w-full`}>
                     <h2 className="flex items-center font-bold mr-6"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] text-white ">NG</span></h2>
                     {!isActive && (
-                    <div className="border-[1px] border-gray-100 py-2 px-2 items-center  flex rounded">
+                    <div className="border-[1px] border-gray-200 py-2 px-2 items-center  flex rounded">
                     <SearchOutlined className="text-blue-500"/>
                         <input
                             type="text"
@@ -63,7 +73,17 @@ const Navbar = () => {
                         )}
                             </h2>
 
+                              
+                </div>
+                <div className="mt-5">
+                     <h2 className="font-bold text-[20px]"> {formData && formData.search} {searchData && searchData.month}</h2>
+                </div>
+                <div className="flex flex-wrap items-center  text-xs mt-2">
+                            <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                            
+                           
 
+                            
                 </div>
             </nav>
         </>
