@@ -5,10 +5,9 @@ import { useState } from "react";
 import SearchData from "../AllReviewsComponent/data";
 
 
-const Navbar = () => {
+const Navbar = ({updateSearchData}) => {
     const location = useLocation()
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
-    const [searchData, setSearchData] = useState(null)
     const [isTyping, setIsTyping] = useState(false)
 
     const [formData, setFormData] = useState({    
@@ -20,22 +19,20 @@ const Navbar = () => {
         setFormData({ ...formData, [name]: value });
         SearchData.forEach((data=>{
             if(value === data.address){
-            setSearchData(data)
+                console.log(typeof updateSearchData)
+                updateSearchData(data);
             console.log("Yeah")
         }
         })
         )
+
         if (value !== ""){
             setIsTyping(true)
         }
         else{
             setIsTyping(false)
         }
-        if(value !== searchData.address) {
-            console.log("It is not working" + searchData.address)
-        }else{
-            console.log("It is working")
-        }
+    
     }
     return ( 
         
@@ -51,7 +48,7 @@ const Navbar = () => {
                             name="search"
                             value={formData.search}
                             onChange={handleInputChange}
-                            className="outline-none bg-transparent w-[550px] px-2 "
+                            className="outline-none bg-transparent xl:w-[600px] md:w-[350px] w-[50px] xs:w-[100px] px-2 "
                         />
                         <CloseOutlined className="text-blue-500 cursor-pointer"/>
                     </div>)}
@@ -76,15 +73,14 @@ const Navbar = () => {
                               
                 </div>
                 <div className="mt-5">
-                     <h2 className="font-bold text-[20px]"> {formData && formData.search} {searchData && searchData.month}</h2>
+                     <h2 className="font-bold text-[20px]"> {formData && formData.search} </h2>
                 </div>
-                <div className="flex flex-wrap items-center  text-xs mt-2">
-                            <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
-                            
-                           
-
-                            
-                </div>
+                {isTyping && !isActive &&(
+                        <div className="flex flex-wrap items-center  text-xs mt-2">
+                        <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                        </div>
+                )}
+               
             </nav>
         </>
      );
