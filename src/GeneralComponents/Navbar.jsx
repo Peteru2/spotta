@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import navAvatar from "../assets/images/navAvatar.jfif"
-import { SearchOutlined, CloseOutlined } from '@ant-design/icons';
+import { SearchOutlined, CloseOutlined, BookOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import SearchData from "../AllReviewsComponent/data";
 
@@ -39,7 +39,7 @@ const Navbar = ({updateSearchData}) => {
         <>
             <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[50px]  py-[16px] font-roboto`}>
                 <div className={`  flex w-full`}>
-                    <h2 className="flex items-center font-bold mr-6"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] text-white ">NG</span></h2>
+                    <h2 className="flex items-center font-bold mr-12"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] pt-[2px] text-white ">NG</span></h2>
                     {!isActive && (
                     <div className="border-[1px] border-gray-200 py-2 px-2 items-center  flex rounded">
                     <SearchOutlined className="text-blue-500"/>
@@ -48,9 +48,9 @@ const Navbar = ({updateSearchData}) => {
                             name="search"
                             value={formData.search}
                             onChange={handleInputChange}
-                            className="outline-none bg-transparent xl:w-[600px] md:w-[350px] w-[50px] xs:w-[100px] px-2 "
+                            className="outline-none bg-transparent xl:w-[900px] md:w-[350px] w-[50px] xs:w-[100px] px-2 "
                         />
-                        <CloseOutlined className="text-blue-500 cursor-pointer"/>
+                        <CloseOutlined onClick ={()=> setFormData({search:''})}className="text-blue-500 outline-none cursor-pointer"/>
                     </div>)}
                     <h2 className="ml-auto">
                         {isActive ? (
@@ -72,13 +72,26 @@ const Navbar = ({updateSearchData}) => {
 
                               
                 </div>
-                <div className="mt-5">
-                     <h2 className="font-bold text-[20px]"> {formData && formData.search} </h2>
-                </div>
                 {isTyping && !isActive &&(
-                        <div className="flex flex-wrap items-center  text-xs mt-2">
-                        <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                    <>
+                        <div className="mt-5 flex">
+                            <h2 className="font-bold text-[20px]"> {formData && formData.search} </h2>
+                            <div className="flex ml-auto">
+                                <button className="bg-blue-500 text-white px-3 rounded">LEAVE A REVIEW</button>
+                                <span className="border-[1px] border-blue-400 mx-3 p-2 px-3 rounded">
+                                <BookOutlined className="text-blue-400"/>
+                                </span>
+                                <span className="border-[1px] border-blue-400 p-2 px-3 rounded">
+                                <ShareAltOutlined className="text-blue-400"/>
+                               
+                                </span>
+                            </div>
                         </div>
+                    
+                                <div className="flex flex-wrap items-center  text-xs mt-2">
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                </div>
+                        </>
                 )}
                
             </nav>

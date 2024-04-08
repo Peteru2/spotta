@@ -37,9 +37,9 @@ const ScrollableDiv = () => {
                    There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.
                    </p>
                    <div className="flex w-full text-xs mt-2">
-                       <h2 className="text-gray-500"><LikeOutlined />{data.like}</h2>
-                       <h2  className="text-gray-500 mx-2"> <DislikeOutlined />{data.dislike}</h2>
-                       <h2  className="text-gray-500"> <CommentOutlined />{data.comment}</h2>
+                       <h2 className="text-indigo-900"><LikeOutlined />{data.like}</h2>
+                       <h2  className="text-indigo-900 mx-2"> <DislikeOutlined />{data.dislike}</h2>
+                       <h2  className="text-indigo-900"> <CommentOutlined />{data.comment}</h2>
                   
                    
                    <h2 className={`ml-auto text-xs rounded-md px-1 text-black ${data.type === "power"? "bg-red-400": data.type==="network"? "bg-pink-200" : data.type==="traffic"? "bg-yellow-100": "bg-blue-300 border-[1px] border-blue-500"}`}>{data.type}</h2>
