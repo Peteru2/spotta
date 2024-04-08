@@ -148,19 +148,12 @@ const [isTyping, setIsTyping] = useState(false);
                             <span className={`text-red-500 text-[14px] ${errors.password? "blink-error":""}`}> {errors.password}</span>
                         </label> 
                             </div>
-
-                           
-
-                            <button  type="submit"  className="bg-blue-600 w-full border-[1px] mt-2  border-private hover:bg-opacity-90  text-white  py-2 px-3 rounded-md "> <span className="text-white">LOGIN</span> </button>
-                                
+                            <button  type="submit"  className="bg-blue-600 w-full border-[1px] mt-2  border-private hover:bg-opacity-90  text-white  py-2 px-3 rounded-md "> <span className="text-white">LOGIN</span> </button>  
                         </form>
                                     <GFA_SignUps />
                     </div>
                     </section>
-                
                     </div>
-                   
-                    
                 </>
      );
 }
