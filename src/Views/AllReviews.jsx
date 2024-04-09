@@ -1,15 +1,19 @@
 import Reviews from "../AllReviewsComponent/Review";
-import Navbar from "../GeneralComponents/Navbar";
-
-
-
-
+// import Navbar from "../GeneralComponents/Navbar";
+import ReviewNav from "../GeneralComponents/ReviewNav";
+import { useState } from "react";
 
 const AllReviews = () => {
+    const [searchData, setSearchData] = useState(null)
+
+    const updateSearchData = (newData) => {
+        setSearchData(newData);
+    };
+
     return ( 
         <>
-        <Navbar />
-        <Reviews />
+                    <ReviewNav  searchData={searchData} updateSearchData={updateSearchData}/>
+                    <Reviews searchData={searchData} />
         </>
      );
 }

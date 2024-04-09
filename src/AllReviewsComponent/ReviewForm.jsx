@@ -207,7 +207,7 @@ const ReviewForm = ({onClose}) => {
        
 
         
-        <div onClick={()=> onClose()} className="'border w-full text-center ml-2 shadow-md py-2 rounded text-black">
+        <div onClick={()=> onClose()} className="cursor-pointer border w-full text-center ml-2 shadow-md py-2 rounded text-black">
         <button>Cancel</button>
         </div>
 
