@@ -4,6 +4,7 @@ import { SearchOutlined, CloseOutlined, BookOutlined, ShareAltOutlined } from '@
 import { useState } from "react";
 import SearchData from "../AllReviewsComponent/data";
 import ReviewForm from "../AllReviewsComponent/ReviewForm";
+import { CheckCircleOutlined} from '@ant-design/icons';
 
 
 const ReviewNav = ({searchData, updateSearchData}) => {
@@ -11,6 +12,8 @@ const ReviewNav = ({searchData, updateSearchData}) => {
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     const [isTyping, setIsTyping] = useState(false)
     const [showRevForm, setShowRevForm] = useState(false)
+const [message, setMessage] =useState(false)
+
    
 
     const handleShowRevForm =() =>{
@@ -20,6 +23,12 @@ const ReviewNav = ({searchData, updateSearchData}) => {
         setShowRevForm(false)
     }
     
+    const handleShowMessage =() =>{
+        setMessage(true)
+        setTimeout(() => {
+            setMessage(false);
+        }, 3000);
+    }
 
     const [formData, setFormData] = useState({    
         search: '',
@@ -131,11 +140,16 @@ const ReviewNav = ({searchData, updateSearchData}) => {
 
             <div className={ `modal w-[380px] md:w-[700px]  font-roboto ${showRevForm ? "modal-show":""}`}>
                 <div className='bg-white p-4 rounded-[6px] '> 
-                    <ReviewForm onClose={handleCloseRevForm} searchData={searchData}/>
+                    <ReviewForm onClose={handleCloseRevForm} showMessage={handleShowMessage} showRevForm={handleShowRevForm}  searchData={searchData}/>
                 </div>
                         </div> 
                     <div className={`${showRevForm?"overlay":""} `}></div>
      
+                    <div className="justify-center flex ">
+                    <h2 className={`border shadow-md rounded-md py-2 border-green-400 text-green-400 font-bold w-[400px] text-center message-enter ${message?"message-enter-active":""}`}>
+                        <CheckCircleOutlined /> Review Submitted
+                    </h2>
+                </div>
         </>
      );
 }
