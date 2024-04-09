@@ -20,7 +20,8 @@ export default {
       fontFamily:{
         roboto:["Roboto", "sans-serif"],
         lora:["Lora", "serif"],
-        playfair:['Playfair Display', 'sans-serif']
+        playfair:['Playfair Display', 'sans-serif'],
+        inter: ["Inter", "sans-serif"]
   
       },
     extend: {

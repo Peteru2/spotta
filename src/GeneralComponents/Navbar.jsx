@@ -3,12 +3,22 @@ import navAvatar from "../assets/images/navAvatar.jfif"
 import { SearchOutlined, CloseOutlined, BookOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import SearchData from "../AllReviewsComponent/data";
+import ReviewForm from "../AllReviewsComponent/ReviewForm";
 
 
 const Navbar = ({updateSearchData}) => {
     const location = useLocation()
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     const [isTyping, setIsTyping] = useState(false)
+    const [showRevForm, setShowRevForm] = useState(false)
+
+    const handleShowRevForm =() =>{
+        setShowRevForm(true)
+    }
+    const handleCloseRevForm =() =>{
+        setShowRevForm(false)
+    }
+    
 
     const [formData, setFormData] = useState({    
         search: '',
@@ -37,7 +47,7 @@ const Navbar = ({updateSearchData}) => {
     return ( 
         
         <>
-            <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[50px]  py-[16px] font-roboto`}>
+            <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[30px]  py-[16px] font-roboto`}>
                 <div className={`  flex w-full`}>
                     <h2 className="flex items-center font-bold mr-12"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] pt-[2px] text-white ">NG</span></h2>
                     {!isActive && (
@@ -74,10 +84,10 @@ const Navbar = ({updateSearchData}) => {
                 </div>
                 {isTyping && !isActive &&(
                     <>
-                        <div className="mt-5 flex">
-                            <h2 className="font-bold text-[20px]"> {formData && formData.search} </h2>
+                        <div className="mt-5 md:flex">
+                            <h2 className="font-bold text-[20px] break-all"> {formData && formData.search} </h2>
                             <div className="flex ml-auto">
-                                <button className="bg-blue-500 text-white px-3 rounded">LEAVE A REVIEW</button>
+                                <button onClick={handleShowRevForm} className="bg-blue-500 text-white px-3 rounded">LEAVE A REVIEW</button>
                                 <span className="border-[1px] border-blue-400 mx-3 p-2 px-3 rounded">
                                 <BookOutlined className="text-blue-400"/>
                                 </span>
@@ -95,6 +105,14 @@ const Navbar = ({updateSearchData}) => {
                 )}
                
             </nav>
+
+            <div className={ `modal w-[330px] md:w-[600px]  font-roboto ${showRevForm ? "modal-show":""}`}>
+                <div className='bg-white p-4 rounded-[6px] '> 
+                    <ReviewForm onClose={handleCloseRevForm} />
+                </div>
+                        </div> 
+                    <div className={`${showRevForm?"overlay":""} `}></div>
+     
         </>
      );
 }
