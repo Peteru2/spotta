@@ -74,10 +74,10 @@ const [message, setMessage] =useState(false)
         
         <>
             <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[30px]  py-[16px] font-roboto`}>
-                <div className={`  flex w-full`}>
-                    <h2 className="flex items-center font-bold mr-12"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] pt-[2px] text-white ">NG</span></h2>
+                <div className={`flex md:justify-left justify-between  w-full`}>
+                    <h2 className="flex items-center font-bold md:mr-12"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] pt-[2px] text-white ">NG</span></h2>
                     {!isActive && (
-                    <div className="border-[1px] border-gray-200 py-2 px-2 items-center  flex rounded">
+                    <div className="border-[1px] border-gray-200 mx-4 md:mx-0 py-2 px-2 items-center  flex rounded">
                     <SearchOutlined className="text-blue-500"/>
                         <input
                             type="text"
