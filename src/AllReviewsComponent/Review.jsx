@@ -1,4 +1,4 @@
-import { StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@ant-design/icons';
 import navAvatar from "../assets/images/navAvatar.jfif"
 import svg from "../assets/svgs/notFoundSVG.svg"
 import ReviewForm from './ReviewForm';
@@ -7,6 +7,8 @@ import { useState } from 'react';
 const Reviews = ({searchData}) => {
 const [showPostBtns, setShowPostBtns] = useState(Array(searchData && searchData.length).fill(false));
 const [showRevForm, setShowRevForm] = useState(false)
+const [message, setMessage] =useState(false)
+
    
 
     const handleShowRevForm =() =>{
@@ -14,6 +16,12 @@ const [showRevForm, setShowRevForm] = useState(false)
     }
     const handleCloseRevForm =() =>{
         setShowRevForm(false)
+    }
+    const handleShowMessage =() =>{
+        setMessage(true)
+        setTimeout(() => {
+            setMessage(false);
+        }, 3000);
     }
     const handleShowPostBtn = (index) => {
         const newShowPostBtns = [...showPostBtns];
@@ -76,24 +84,26 @@ const [showRevForm, setShowRevForm] = useState(false)
 
         </div>
        
-                
+                {searchData &&(
+
+<div className="md:col-span-2">
+                    <div className="grid grid-cols-2 gap-4">
+                        <img src={searchData.imgs[0]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+
+                        <img src={searchData.imgs[1]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+                        <img src={searchData.imgs[2]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+
+                        <div className="relative cursor-pointer h-[190px] rounded-md overflow-hidden">
+                            <img src={searchData.imgs[3]} alt="img" className="w-full h-full object-cover" />
+                            <div className="absolute inset-0 flex items-center justify-center bg-gray-400 bg-opacity-80">
+                                <span className="text-white  ">View More</span>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+                )}
                
-                <div className="md:col-span-2">
-            <div className="grid grid-cols-2 gap-4">
-            <img src={searchData&&searchData.imgs[0]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
-
-            <img src={searchData&&searchData.imgs[1]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
-            <img src={searchData&&searchData.imgs[2]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
-
-            <div className="relative cursor-pointer h-[190px] rounded-md overflow-hidden">
-                <img src={searchData&&searchData.imgs[3]} alt="img" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-400 bg-opacity-80">
-                    <span className="text-white  ">View More</span>
-                </div>
-            </div>
-
-            </div>
-            </div>
+                
            
         
        
@@ -106,7 +116,7 @@ const [showRevForm, setShowRevForm] = useState(false)
                 <img src={svg} alt="svg"/>
                 <div>
                     <h2 className="text-center my-3">Opps, No review Yet</h2>
-                    <div onClick={handleShowRevForm} className="bg-blue-500 rounded-md py-2 mt-4 text-white flex justify-center ">
+                    <div onClick={handleShowRevForm} className="bg-blue-500 rounded-md cursor-pointer py-2 mt-4 text-white flex justify-center ">
                         <button>LEAVE A REVIEW</button>
                     </div>
                 </div>
@@ -118,10 +128,19 @@ const [showRevForm, setShowRevForm] = useState(false)
 
 <div className={ `modal w-[380px] md:w-[700px]  font-roboto ${showRevForm ? "modal-show":""}`}>
                 <div className='bg-white p-4 rounded-[6px] '> 
-                    <ReviewForm onClose={handleCloseRevForm} searchData={searchData}/>
+                    <ReviewForm onClose={handleCloseRevForm} showMessage={handleShowMessage} searchData={searchData} />
                 </div>
                         </div> 
-                    <div className={`${showRevForm?"overlay":""} `}></div>
+                    <div className={`${showRevForm?"overlay":""} `}>
+                        
+        </div>
+       
+                <div className="justify-center flex ">
+                    <h2 className={`border shadow-md rounded-md py-2 border-green-400 text-green-400 font-bold w-[400px] text-center message-enter ${message?"message-enter-active":""}`}>
+                        <CheckCircleOutlined /> Review Submitted
+                    </h2>
+                </div>
+            
         </>
      );
 }

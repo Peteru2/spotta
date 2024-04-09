@@ -2,6 +2,7 @@ import Reviews from "../AllReviewsComponent/Review";
 // import Navbar from "../GeneralComponents/Navbar";
 import ReviewNav from "../GeneralComponents/ReviewNav";
 import { useState } from "react";
+import Dashboard from "./Dashboard";
 
 const AllReviews = () => {
     const [searchData, setSearchData] = useState(null)
@@ -13,7 +14,8 @@ const AllReviews = () => {
     return ( 
         <>
                     <ReviewNav  searchData={searchData} updateSearchData={updateSearchData}/>
-                    <Reviews searchData={searchData} />
+                    {searchData?(<Reviews searchData={searchData} />):(<Dashboard />)}
+                    
         </>
      );
 }

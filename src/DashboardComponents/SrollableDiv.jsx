@@ -5,7 +5,7 @@ const ScrollableDiv = () => {
     return ( 
         <>
       
-        <div className="w-[600px] p-[1px] py-8 bg-gray-200 relative h-[550px]   overflow-y-hidden hover:x`overflow-y-scroll">
+        <div className="w-[600px] p-[1px] py-8 bg-gray-200 relative h-[550px]   overflow-y-hidden hover:overflow-y-scroll">
 
         <div className="absolute top-0 left-0 w-full h-[50px] bg-gradient-to-b from-white via-white" />
    

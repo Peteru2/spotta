@@ -32,4 +32,13 @@ body{
     /* transition: transform 0.3s ease, opacity 0.3s ease; */
   }
   
+  .message-enter {
+    opacity: 0;
+  }
   
+  .message-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+    position: absolute;
+    top:100px
+  }

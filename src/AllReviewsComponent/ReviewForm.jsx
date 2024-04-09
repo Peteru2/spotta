@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DownOutlined, StarOutlined } from '@ant-design/icons';
 
-const ReviewForm = ({onClose, searchData}) => {
+const ReviewForm = ({onClose, searchData, showMessage}) => {
   const [options, setOptions] = useState([]);
   const [other, setOther] = useState('');
   const [showOptions, setShowOptions] = useState(false);
@@ -14,6 +14,7 @@ const ReviewForm = ({onClose, searchData}) => {
         onClose()
         setOptions([])
         setOther("")
+        showMessage()
    }
    
     console.log('Options:', options);
@@ -238,7 +239,7 @@ const ReviewForm = ({onClose, searchData}) => {
         <div className="border shadow-sm h-[180px] rounded-md">
           <input 
           placeholder= "Placeholder"
-          type="text" id="other"  name="other" className="outline-none py-2 px-2 w-full" value={other} onChange={handleOtherChange}/>
+          type="text" id="other"  name="other" className="outline-none py-2 px-2 w-full h-full" value={other} onChange={handleOtherChange}/>
         </div>
         </div>
 

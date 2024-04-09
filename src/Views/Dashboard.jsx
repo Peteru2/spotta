@@ -1,10 +1,8 @@
-import Navbar from "../GeneralComponents/Navbar";
 import ScrollableDiv from "../DashboardComponents/SrollableDiv";
 
 const Dashboard = () => {
     return ( 
         <>
-        <Navbar />
                 <div className="flex  md:px-[100px] w-full px-[50px] gap-[320px] items-center font-roboto">
                     <div className="w-[520px]">
                         <h2 className="text-[54px] font-bold ">Find a place you will love to live!</h2>

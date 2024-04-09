@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { EyeOutlined, EyeInvisibleOutlined, DeliveredProcedureOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
@@ -13,7 +14,7 @@ const Login = () => {
 const [icon, setIcon] = useState(false)
 const [showPassword, setShowPassword] = useState(false)
 const [isTyping, setIsTyping] = useState(false);
-
+const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         
@@ -61,12 +62,10 @@ const [isTyping, setIsTyping] = useState(false);
                 else {
                     
                         setFormData({
-                           
                             email: '',
                             password:'',
-                           
                         })
-                          setShowVerifyEmail(true)
+                          navigate("/")
                 }
                 setErrors(newErrors);
             if (Object.keys(newErrors).length === 0) {

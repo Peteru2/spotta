@@ -5,6 +5,7 @@ const Success = ({onClose}) => {
     const navigate = useNavigate()
     const handleLogin = () =>{
             onClose()
+            navigate("/")
     }
     return ( 
         <>
