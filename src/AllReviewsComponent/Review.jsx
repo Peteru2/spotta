@@ -1,11 +1,20 @@
 import { StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@ant-design/icons';
 import navAvatar from "../assets/images/navAvatar.jfif"
 import svg from "../assets/svgs/notFoundSVG.svg"
+import ReviewForm from './ReviewForm';
 
 import { useState } from 'react';
 const Reviews = ({searchData}) => {
 const [showPostBtns, setShowPostBtns] = useState(Array(searchData && searchData.length).fill(false));
+const [showRevForm, setShowRevForm] = useState(false)
+   
 
+    const handleShowRevForm =() =>{
+        setShowRevForm(true)
+    }
+    const handleCloseRevForm =() =>{
+        setShowRevForm(false)
+    }
     const handleShowPostBtn = (index) => {
         const newShowPostBtns = [...showPostBtns];
         newShowPostBtns[index] = !newShowPostBtns[index];
@@ -92,11 +101,27 @@ const [showPostBtns, setShowPostBtns] = useState(Array(searchData && searchData.
 </div>
 ):(
     <>
-        <div className ="flex justify-center items-center mt-20">
-        <img src={svg} alt="svg"/>
+        <div className ="flex justify-center items-center mt-10">
+            <div>
+                <img src={svg} alt="svg"/>
+                <div>
+                    <h2 className="text-center my-3">Opps, No review Yet</h2>
+                    <div onClick={handleShowRevForm} className="bg-blue-500 rounded-md py-2 mt-4 text-white flex justify-center ">
+                        <button>LEAVE A REVIEW</button>
+                    </div>
+                </div>
+
+             </div>
         </div>
     </>
 )}
+
+<div className={ `modal w-[380px] md:w-[700px]  font-roboto ${showRevForm ? "modal-show":""}`}>
+                <div className='bg-white p-4 rounded-[6px] '> 
+                    <ReviewForm onClose={handleCloseRevForm} searchData={searchData}/>
+                </div>
+                        </div> 
+                    <div className={`${showRevForm?"overlay":""} `}></div>
         </>
      );
 }

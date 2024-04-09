@@ -11,7 +11,7 @@ const ReviewNav = ({searchData, updateSearchData}) => {
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     const [isTyping, setIsTyping] = useState(false)
     const [showRevForm, setShowRevForm] = useState(false)
-    const [storeData, setstoreData] =useState(null)
+   
 
     const handleShowRevForm =() =>{
         setShowRevForm(true)
