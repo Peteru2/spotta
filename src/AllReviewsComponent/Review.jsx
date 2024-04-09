@@ -1,27 +1,22 @@
 import { StarOutlined, LikeOutlined, DislikeOutlined, CommentOutlined } from '@ant-design/icons';
 import navAvatar from "../assets/images/navAvatar.jfif"
-import img1 from "../assets/images/img1.jfif"
-import img2 from "../assets/images/img2.jfif"
-import img3 from "../assets/images/img3.jfif"
-import img4 from "../assets/images/img4.jfif"
-
+import svg from "../assets/svgs/notFoundSVG.svg"
 
 import { useState } from 'react';
 const Reviews = ({searchData}) => {
-const [showPostBtn, setShowPostBtn] = useState(false)
-
-const [showPostBtns, setShowPostBtns] = useState(Array(searchData.length).fill(false));
+const [showPostBtns, setShowPostBtns] = useState(Array(searchData && searchData.length).fill(false));
 
     const handleShowPostBtn = (index) => {
         const newShowPostBtns = [...showPostBtns];
         newShowPostBtns[index] = !newShowPostBtns[index];
         setShowPostBtns(newShowPostBtns);
     };
+    const check = searchData && searchData.reviews.length === 0
     return ( 
         <>
-        {searchData && (
+        { !check ? (
         <div className="md:mx-[100px] mx-[50px] mt-[20px]">
-                    {searchData.month}
+                
 <section className="grid md:grid-cols-6 grid-cols-1 gap-10 font-inter ">
 
         <div className="md:col-span-4">
@@ -76,13 +71,13 @@ const [showPostBtns, setShowPostBtns] = useState(Array(searchData.length).fill(f
                
                 <div className="md:col-span-2">
             <div className="grid grid-cols-2 gap-4">
-            <img src={searchData.imgs[0]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+            <img src={searchData&&searchData.imgs[0]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
 
-            <img src={searchData.imgs[1]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
-            <img src={searchData.imgs[2]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+            <img src={searchData&&searchData.imgs[1]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
+            <img src={searchData&&searchData.imgs[2]} atl="img" className="w-[190px] h-[190px] rounded-md "/>
 
             <div className="relative cursor-pointer h-[190px] rounded-md overflow-hidden">
-                <img src={searchData.imgs[3]} alt="img" className="w-full h-full object-cover" />
+                <img src={searchData&&searchData.imgs[3]} alt="img" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-400 bg-opacity-80">
                     <span className="text-white  ">View More</span>
                 </div>
@@ -95,6 +90,12 @@ const [showPostBtns, setShowPostBtns] = useState(Array(searchData.length).fill(f
        
 </section>
 </div>
+):(
+    <>
+        <div className ="flex justify-center items-center mt-20">
+        <img src={svg} alt="svg"/>
+        </div>
+    </>
 )}
         </>
      );

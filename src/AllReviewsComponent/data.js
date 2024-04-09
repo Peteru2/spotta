@@ -44,11 +44,11 @@ const SearchData = [
       
       {
         imgs:[
-            heroImg,
-            heroImg,
-            heroImg,
-            heroImg,
-        ],
+          img1,
+          img2,
+          img3,
+          img4,
+      ],
         address: "King Ajoa Street, Lekki, Lagos",
         location: "Ikete,Lekki",
         rating:"4.0",
@@ -62,6 +62,20 @@ const SearchData = [
             comment: 24,
           },
         ],
+        type:"power",
+      },
+
+      {
+        imgs:[
+          img1,
+          img2,
+          img3,
+          img4,
+      ],
+        address: "King James Adika, Iwo Road, Ibadan",
+        location: "Ikete,Lekki",
+        rating:"4.0",
+        reviews:[],
         type:"power",
       },
       

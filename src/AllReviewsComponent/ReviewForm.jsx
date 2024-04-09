@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DownOutlined, StarOutlined } from '@ant-design/icons';
 
-const ReviewForm = ({onClose}) => {
+const ReviewForm = ({onClose, searchData}) => {
   const [options, setOptions] = useState([]);
   const [other, setOther] = useState('');
   const [showOptions, setShowOptions] = useState(false);
@@ -38,7 +38,7 @@ const ReviewForm = ({onClose}) => {
   return ( 
     <div className="font-inter">
       <h2 className="Review Location text-center my-2 font-bold">Review Location</h2>
-      <h2 className="font-bold">OLatunji Peter Street</h2>
+      <h2 className="font-bold">{searchData && searchData.address}</h2>
 
       <form onSubmit={handleSubmit}>
         <label className="block mt-5 mb-3" htmlFor="options">Select options:</label>
@@ -50,7 +50,7 @@ const ReviewForm = ({onClose}) => {
             className="flex inline-flex  bg-blue-50 bg w-full rounded-md shadow-sm px-4 py-2">
           <button 
             type="button" 
-            className="   bg-transparent text-sm outline-none font-medium text-gray-700 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+            className=" relative  bg-transparent text-sm outline-none font-medium text-gray-700 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
             
           >
             Select Amenities
@@ -60,12 +60,12 @@ const ReviewForm = ({onClose}) => {
           </h2>
           </div>
 
-          <div className="relative">
+          <div className="">
           {showOptions && (
 
-            <div className="origin-top-right p-2 absolute transition-all  w-full rounded-md shadow-lg bg-blue-50 ring-1 ring-black ring-opacity-5">
+            <div className="origin-top-right p-2 absolute overflow-y-scroll transition-all  w-full rounded-md shadow-lg bg-blue-50 ring-1 ring-black ring-opacity-5">
               <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options">
-              <div className="flex">
+              <div className="md:flex  text-sm">
                     <div>
                 <label className="flex items-center justify-start space-x-2">
                   <input type="checkbox" className="text-[30px]" value="option1" onChange={handleOptionChange} checked={options.includes('option1')} />
@@ -98,58 +98,116 @@ const ReviewForm = ({onClose}) => {
                
                <div className="mx-3">
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" className="text-[30px]" value="option1" onChange={handleOptionChange} checked={options.includes('option1')} />
+                  <input type="checkbox" className="text-[30px]" value="option6" onChange={handleOptionChange} checked={options.includes('option6')} />
+                 
+                  <span>Free-Wifi</span>
+                </label>
+                
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option7" onChange={handleOptionChange} checked={options.includes('option7')} />
+                  
+                  <span>Pet Store</span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option8" onChange={handleOptionChange} checked={options.includes('option8')} />
+                  
+                  <span>Child Care</span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox"  value="option9" onChange={handleOptionChange} checked={options.includes('option9')} />
+                 
+                  <span>Gym </span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option10" onChange={handleOptionChange} checked={options.includes('option10')} />
+                  
+                  <span>Security</span>
+                </label>
+
+               </div>
+               <div className="mx-3">
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" className="text-[30px]" value="option11" onChange={handleOptionChange} checked={options.includes('option11')} />
                  
                   <span>Parking Lot</span>
                 </label>
                 
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option2" onChange={handleOptionChange} checked={options.includes('option2')} />
+                  <input type="checkbox" value="option12" onChange={handleOptionChange} checked={options.includes('option12')} />
                   
                   <span>Night Life</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option3" onChange={handleOptionChange} checked={options.includes('option3')} />
+                  <input type="checkbox" value="option13" onChange={handleOptionChange} checked={options.includes('option13')} />
                   
                   <span>Hospitals</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox"  value="option4" onChange={handleOptionChange} checked={options.includes('option4')} />
+                  <input type="checkbox"  value="option14" onChange={handleOptionChange} checked={options.includes('option14')} />
                  
                   <span>Adult Home</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option5" onChange={handleOptionChange} checked={options.includes('option5')} />
+                  <input type="checkbox" value="option15" onChange={handleOptionChange} checked={options.includes('option15')} />
                   
                   <span>Schools</span>
                 </label>
 
                </div>
-               
+
                <div className="mx-3">
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" className="text-[30px]" value="option1" onChange={handleOptionChange} checked={options.includes('option1')} />
+                  <input type="checkbox" className="text-[30px]" value="option16" onChange={handleOptionChange} checked={options.includes('option16')} />
+                 
+                  <span>Free-Wifi</span>
+                </label>
+                
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option17" onChange={handleOptionChange} checked={options.includes('option17')} />
+                  
+                  <span>Pet Store</span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option18" onChange={handleOptionChange} checked={options.includes('option18')} />
+                  
+                  <span>Child Care</span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox"  value="option19" onChange={handleOptionChange} checked={options.includes('option19')} />
+                 
+                  <span>Gym </span>
+                </label>
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" value="option20" onChange={handleOptionChange} checked={options.includes('option20')} />
+                  
+                  <span>Security</span>
+                </label>
+
+               </div> 
+               <div className="mx-3">
+                <label className="flex items-center justify-start space-x-2">
+                  <input type="checkbox" className="text-[30px]" value="option21" onChange={handleOptionChange} checked={options.includes('option21')} />
                  
                   <span>Parking Lot</span>
                 </label>
                 
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option2" onChange={handleOptionChange} checked={options.includes('option2')} />
+                  <input type="checkbox" value="option22" onChange={handleOptionChange} checked={options.includes('option22')} />
                   
                   <span>Night Life</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option3" onChange={handleOptionChange} checked={options.includes('option3')} />
+                  <input type="checkbox" value="option23" onChange={handleOptionChange} checked={options.includes('option23')} />
                   
                   <span>Hospitals</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox"  value="option4" onChange={handleOptionChange} checked={options.includes('option4')} />
+                  <input type="checkbox"  value="option24" onChange={handleOptionChange} checked={options.includes('option24')} />
                  
                   <span>Adult Home</span>
                 </label>
                 <label className="flex items-center justify-start space-x-2">
-                  <input type="checkbox" value="option5" onChange={handleOptionChange} checked={options.includes('option5')} />
+                  <input type="checkbox" value="option25" onChange={handleOptionChange} checked={options.includes('option25')} />
                   
                   <span>Schools</span>
                 </label>

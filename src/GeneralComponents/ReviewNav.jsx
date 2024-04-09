@@ -11,6 +11,7 @@ const ReviewNav = ({searchData, updateSearchData}) => {
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
     const [isTyping, setIsTyping] = useState(false)
     const [showRevForm, setShowRevForm] = useState(false)
+    const [storeData, setstoreData] =useState(null)
 
     const handleShowRevForm =() =>{
         setShowRevForm(true)
@@ -27,14 +28,29 @@ const ReviewNav = ({searchData, updateSearchData}) => {
     const handleInputChange = (e) =>{
         const {name,value} = e.target
         setFormData({ ...formData, [name]: value });
-        SearchData.forEach((data=>{
-            if(value === data.address){
-                console.log(updateSearchData)
-                updateSearchData(data);
-            console.log("Yeah")
+        // // SearchData.forEach((data=>{
+        // //     if(value === data.address){
+        // //         console.log(updateSearchData)
+        // //         updateSearchData(data);
+        // //         setstoreData(data)
+        // //         console.log("Yeah")
+        // // }
+        // // else{
+        // //     updateSearchData(null);
+        // // }
+        // })
+        // )
+
+        const foundData = SearchData.find(data => value === data.address);
+
+        if (foundData) {
+            updateSearchData(foundData);
+            setstoreData(foundData);
+            console.log("Yeah");
+        } else {
+            // If address is not found, clear the data
+            updateSearchData(null);
         }
-        })
-        )
 
         if (value !== ""){
             setIsTyping(true)
@@ -83,8 +99,9 @@ const ReviewNav = ({searchData, updateSearchData}) => {
 
                               
                 </div>
-                {isTyping && !isActive &&(
+                {searchData ?(
                     <>
+                
                         <div className="mt-5 md:flex">
                             <h2 className="font-bold text-[20px] break-all"> {formData && formData.search} </h2>
                             <div className="flex ml-auto">
@@ -98,7 +115,12 @@ const ReviewNav = ({searchData, updateSearchData}) => {
                                 </span>
                             </div>
                         </div>
-                    
+                        </>
+                ):null}
+
+                        {isTyping && !isActive &&(
+                    <>
+
                                 <div className="flex flex-wrap items-center  text-xs mt-2">
                                 <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
                                 </div>
@@ -107,9 +129,9 @@ const ReviewNav = ({searchData, updateSearchData}) => {
                
             </nav>
 
-            <div className={ `modal w-[330px] md:w-[600px]  font-roboto ${showRevForm ? "modal-show":""}`}>
+            <div className={ `modal w-[380px] md:w-[700px]  font-roboto ${showRevForm ? "modal-show":""}`}>
                 <div className='bg-white p-4 rounded-[6px] '> 
-                    <ReviewForm onClose={handleCloseRevForm} />
+                    <ReviewForm onClose={handleCloseRevForm} searchData={searchData}/>
                 </div>
                         </div> 
                     <div className={`${showRevForm?"overlay":""} `}></div>
