@@ -5,12 +5,12 @@ const ScrollableDiv = () => {
     return ( 
         <>
       
-        <div className="w-[600px] p-[1px] py-8 bg-gray-200 relative h-[550px]   overflow-y-hidden hover:overflow-y-scroll">
+        <div className="md:w-[600px] w-full p-[1px] py-8 bg-gray-200 relative h-[550px]   overflow-y-hidden hover:overflow-y-scroll">
 
-        <div className="absolute top-0 left-0 w-full h-[50px] bg-gradient-to-b from-white via-white" />
-   
-    <div className="absolute bottom-0 left-0 w-full h-[50px] bg-gradient-to-t from-white via-white" />
-       <div className="grid grid-cols-2  gap-[20px]">
+         <div className="absolute top-0 left-0 w-full h-[50px] bg-gradient-to-b from-white via-white" />
+    
+     <div className="absolute bottom-0 left-0 w-full h-[50px] bg-gradient-to-t from-white via-white" /> 
+       <div className="grid md:grid-cols-2 grid-cols-1 gap-[20px]">
                    {DashData.map(data =>{
                        return(
                                <>
