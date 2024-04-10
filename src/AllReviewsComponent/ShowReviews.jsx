@@ -27,9 +27,12 @@ const ShowAllreviews = () => {
                     <button className='bg-blue-500 text-white rounded-md text-center ml-2 w-[100px]'>Search</button>
                     </form>
                         {SearchData.map((data)=>{
-                            
+
                             return(
-                    <div className='border-b-[1px] pb-4 xl:w-[864px]'>
+                                <>                                
+                                {data.reviews.map((data)=>{
+                                    return(
+<                   div className='border-b-[1px] pb-4 xl:w-[864px]'>
                         <div className='flex items-center mt-3  '>
                         <h2 className="text-[24px] font-bold">{data.address}</h2>
                         <h2 className="text-sm ml-2 mt-1">
@@ -41,6 +44,11 @@ const ShowAllreviews = () => {
                         <h2 className='text-sm text-gray-700'>February 19th, 2024.</h2>
                         <p className='my-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda iusto nam rerum sapiente veritatis. Odit obcaecati sapiente maiores? Culpa optio incidunt doloremque consectetur quas fugit nostrum quibusdam vitae accusantium deleniti assumenda eos enim aperiam perferendis, soluta voluptas. Cupiditate molestiae numquam, mollitia possimus voluptatibus a veniam eum aliquam odit, assumenda, corrupti ratione fugit? Nobis, facilis in? Dolore numquam beatae tenetur reiciendis, nulla magni recusandae suscipit porro, ullam aliquid saepe excepturi laudantium tempora dolorum quia, vero et quo inventore enim ipsa vitae?</p>
                     </div>
+                                    )
+                                })}
+                    
+                    </>
+
                             )
                         })}
                     

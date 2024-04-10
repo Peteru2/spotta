@@ -22,6 +22,7 @@ const SearchData = [
         reviews:[
             {
             img: navAvatar,
+            address: "Bonny and Clyde Street, Ajao Estate, Lagos",
             name:"James T",
             month: "5 months ago",
             description:" There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.z",
@@ -31,6 +32,7 @@ const SearchData = [
           },
           {
             img: heroImg,
+            address: "Bonny and Clyde Street, Ajao Estate, Lagos",
             name:"John Kennedy",
             month: "4 months ago",
             description:" There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.z",
@@ -54,7 +56,19 @@ const SearchData = [
         rating:"4.0",
         reviews:[
             {
+            img: heroImg,
             name:"James T",
+            address: "King Ajoa Street, Lekki, Lagos",
+            month: "5 months ago",
+            description:" There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.z",
+            like: 28,
+            dislike: 2,
+            comment: 24,
+          },
+          {
+            img: heroImg,
+            name:"James T",
+            address: "King Ajoa Street, Lekki, Lagos",
             month: "5 months ago",
             description:" There is no stable electricity. The roads are fairly good and there is a sense of community. The drainage system is poor and most residents litter their surroundings. There are lots stores and Supermarkets.z",
             like: 28,

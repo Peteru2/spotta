@@ -70,7 +70,7 @@ const [message, setMessage] =useState(false)
         }
     
     }
-    const reviews = searchData && searchData === 0
+    const reviews = searchData && searchData.reviews.length === 0
     return ( 
         
         <>
@@ -113,7 +113,7 @@ const [message, setMessage] =useState(false)
                             <div>
                             <h2 className="font-bold text-[20px] break-all"> {formData && formData.search} </h2>
                             {
-                                reviews ? (<h2 className="font-bold  break-all"> "" Reviews </h2>):
+                                reviews ? (<h2 className="font-bold  break-all"> "{searchData.reviews.length}" Reviews </h2>):
                                 (<h2 className="font-bold  break-all"> "{searchData.reviews.length}" Reviews  (People are raving about the selected location) </h2>)
                             }
                             
