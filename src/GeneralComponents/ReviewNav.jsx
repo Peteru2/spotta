@@ -132,6 +132,17 @@ const [message, setMessage] =useState(false)
 
                                 <div className="flex flex-wrap items-center  text-xs mt-2">
                                 <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+                                <button className="bg-white border-2 rounded border-gray-2 mr-1 px-2 py-1">Schools</button>
+
                                 </div>
                         </>
                 )}

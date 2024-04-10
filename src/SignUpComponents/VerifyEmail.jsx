@@ -40,9 +40,9 @@ const VerifyEmail = ({onClose}) => {
                     verify your e-mail address by clicking the verification
                     link sent to your mail box. Thank you!
 </p>
-<div className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">
-    <button onClick={handleMailBox}>GO TO YOUR MAILBOX</button>
-</div>
+
+    <button  className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full" onClick={handleMailBox}>GO TO YOUR MAILBOX</button>
+
 
 <div className={ `modal w-[330px] md:w-[498px]  font-roboto ${resendVerificationMail ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>                           

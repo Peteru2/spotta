@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import navAvatar from "../assets/images/navAvatar.jfif"
-import { SearchOutlined, CloseOutlined, BookOutlined, ShareAltOutlined } from '@ant-design/icons';
+import { BookOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import SearchData from "../AllReviewsComponent/data";
 import ReviewForm from "../AllReviewsComponent/ReviewForm";
@@ -9,6 +9,7 @@ import ReviewForm from "../AllReviewsComponent/ReviewForm";
 const Navbar = ({updateSearchData}) => {
     const location = useLocation()
     const isActive = location.pathname ==="/SignUp" || location.pathname ==="/Login" 
+    const review = location.pathname === "/All-Reviews"
     const [isTyping, setIsTyping] = useState(false)
     const [showRevForm, setShowRevForm] = useState(false)
 
@@ -47,21 +48,10 @@ const Navbar = ({updateSearchData}) => {
     return ( 
         
         <>
-            <nav className={`${isTyping ? "bg-blue-50":""} md:px-[100px] px-[30px]  py-[16px] font-roboto`}>
+            <nav className={`${ review  ? "bg-blue-50":""} md:px-[100px] px-[30px]  py-[16px] font-roboto`}>
                 <div className={`  flex w-full`}>
                     <h2 className="flex items-center font-bold mr-12"><span className="tracking-[3px] text-[14px] ">SPOTTA</span><span className="bg-blue-500 text-center text-[8px] rounded-[2px] px-[6px] pt-[2px] text-white ">NG</span></h2>
-                    {!isActive && (
-                    <div className="border-[1px] border-gray-200 py-2 px-2 items-center  flex rounded">
-                    <SearchOutlined className="text-blue-500"/>
-                        <input
-                            type="text"
-                            name="search"
-                            value={formData.search}
-                            onChange={handleInputChange}
-                            className="outline-none bg-transparent xl:w-[900px] md:w-[350px] w-[50px] xs:w-[100px] px-2 "
-                        />
-                        <CloseOutlined onClick ={()=> setFormData({search:''})}className="text-blue-500 outline-none cursor-pointer"/>
-                    </div>)}
+                 
                     <h2 className="ml-auto">
                         {isActive ? (
                                 <>

@@ -170,10 +170,7 @@ Password
 <span className={`text-red-500 text-[14px] ${errors.cpassword? "blink-error":""}`}> {errors.cpassword}</span>
 </label> 
 </div>
-
-<div className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">
-    <button>RESET PASSWORD</button>
-</div>
+    <button className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">RESET PASSWORD</button>
 </form>
 <div className={ `modal w-[330px] md:w-[498px]  font-roboto ${success ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>

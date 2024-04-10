@@ -62,9 +62,9 @@ const MailVerification = ({onClose, closeMail}) => {
         <span className={`text-red-500 text-[14px] ${errors.email? "blink-error":""}`}> {errors.email}</span>
     </label> 
 
-<div className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">
-    <button onClick={handleResendLink}>RESEND VERIFICATION LINK</button>
-</div>
+
+    <button className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full" onClick={handleResendLink}>RESEND VERIFICATION LINK</button>
+
 
 <div className={ `modal w-[330px]  font-roboto ${resendLink ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>

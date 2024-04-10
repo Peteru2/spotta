@@ -60,9 +60,9 @@ const ResetPassword = ({closeResend}) => {
     <span className={`text-red-500 text-[14px] ${errors.email? "blink-error":""}`}> {errors.email}</span>
                         </label> 
 
-<div className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full">
-    <button onClick={handleResetPassword}>GET RECOVERY LINK</button>
-</div>
+
+    <button className="my-3 text-center bg-blue-500 rounded-md text-white p-2 w-full" onClick={handleResetPassword}>GET RECOVERY LINK</button>
+
 
 <div className={ `modal w-[330px] md:w-[498px]  font-roboto ${resetPassword ? "modal-show":""}`}>
                             <div className='bg-white p-4 rounded-[6px] '>

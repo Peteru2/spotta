@@ -236,7 +236,7 @@ const ReviewForm = ({onClose, searchData, showMessage}) => {
                 
         <div className="">
             <h2>Write Review</h2>
-        <div className="border shadow-sm h-[180px] rounded-md">
+        <div onClick={() => setShowOptions(!showOptions)} className="border shadow-sm h-[180px] rounded-md">
           <input 
           placeholder= "Placeholder"
           type="text" id="other"  name="other" className="outline-none py-2 px-2 w-full h-full" value={other} onChange={handleOtherChange}/>
