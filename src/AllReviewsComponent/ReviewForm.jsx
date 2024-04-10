@@ -259,7 +259,7 @@ const ReviewForm = ({onClose, searchData, showMessage}) => {
         <button 
           type="submit" 
           disabled={!isFormValid} 
-          className={ `text-white  mr-2 text-center w-full rounded-md py-2 ${isFormValid ? "bg-blue-400 cursor-pointer" : "bg-blue-400 cursor-not-allowed bg-opacity-40"}`}
+          className={ `text-white  mr-2 text-center w-full rounded-md py-2 ${isFormValid ? "bg-blue-500 cursor-pointer" : "bg-blue-400 cursor-not-allowed bg-opacity-40"}`}
         >
           Submit
         </button>
